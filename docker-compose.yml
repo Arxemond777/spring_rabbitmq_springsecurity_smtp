@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  rabbit:
+    image: rabbitmq:3-management
+    hostname: todo_broker
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_VHOST=/
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  mysql:
+    hostname: todo_db
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+#    volumes:
+#      - /storage/docker/mysql-datadir:/var/lib/mysql
+#    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
