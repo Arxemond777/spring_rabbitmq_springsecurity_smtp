@@ -11,13 +11,24 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+#  postgres:
+#    image: postgres:latest
+#    restart: always
+#    ports:
+#      - '5432:5432'
+#    environment:
+#      - DEBUG=false
+#
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=postgres
+#    volumes:
+#      - /tmp/docker/postgresql:/var/lib/postgresql
   mysql:
-    hostname: todo_db
     image: mysql
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-#    volumes:
-#      - /storage/docker/mysql-datadir:/var/lib/mysql
+    volumes:
+      - /tmp/docker/mysql-datadir:/var/lib/mysql
 #    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.rabbitmq.plist
