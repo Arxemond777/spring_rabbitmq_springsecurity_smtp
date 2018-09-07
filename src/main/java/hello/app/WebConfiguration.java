@@ -1,4 +1,4 @@
-package hello.swagger;
+package hello.app;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import org.springframework.context.annotation.Configuration;
